@@ -185,7 +185,11 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		self.modFlag = true
 		self.buildFlag = true
 	end)
-	self.controls.characterLevel = new("EditControl", {"LEFT",self.controls.levelScalingButton,"RIGHT"}, {8, 0, 106, 20}, "", "Level", "%D", 3, function(buf)
+
+	self.controls.gaming = new("ButtonControl", {"LEFT",self.controls.levelScalingButton,"RIGHT"}, {12, 0, 50, 20}, "AutoSkill", function()
+		
+	end)
+	self.controls.characterLevel = new("EditControl", {"LEFT",self.controls.gaming,"RIGHT"}, {8, 0, 106, 20}, "", "Level", "%D", 3, function(buf)
 		self.characterLevel = m_min(m_max(tonumber(buf) or 1, 1), 100)
 		self.configTab:BuildModList()
 		self.modFlag = true
